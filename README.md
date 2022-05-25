@@ -1,5 +1,5 @@
 ## Doodle Board
-##### [Demo](https://fergusonshuai.github.io/doodle-board)
+### [Demo](https://fergusonshuai.github.io/doodle-board)
 
 An online doodle board allowing you to draw whatever you want!
 
