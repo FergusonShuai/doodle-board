@@ -10,4 +10,4 @@ Inspired by Maksim Ivanov's [tutorial](https://www.youtube.com/watch?v=FLESHMJ-b
 
 - [x] Add a button to clear the entire drawing area.
 - [x] Add a button to download your drawing as a `.png` file.
-- [] Allow user to change stroke color and thickness.
+- [ ] Allow user to change stroke color and thickness.
