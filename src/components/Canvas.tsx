@@ -1,4 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
+import '../Canvas.css';
 
 const Canvas = (): React.ReactElement => {
     
@@ -20,7 +21,7 @@ const Canvas = (): React.ReactElement => {
         context.scale(2,2);
         context.lineCap = "round";
         context.strokeStyle = "black";
-        context.lineWidth = 5;
+        context.lineWidth = 3;
         contextRef.current = context;
     }, [])
 
@@ -48,15 +49,39 @@ const Canvas = (): React.ReactElement => {
             contextRef.current.stroke();
         }
     }
+
+    const clearCanvas = () => {
+        const context = contextRef.current;
+        const canvas = canvasRef.current;
+        if (!context || !canvas) return;
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    const saveCanvas = () => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const dataURL = canvas.toDataURL("image/png");
+        // A hacky way to achieve download function.
+        var link = document.createElement('a');
+        link.download = 'doodle.png';
+        link.href = dataURL;
+        link.click();
+    }
     
     return (
         
         <div>
-            <canvas 
-             onMouseDown = {startDrawing}
-             onMouseUp = {doneDrawing}
-             onMouseMove = {draw}
-             ref = {canvasRef}></canvas>
+            <button onClick = {clearCanvas} >Clear</button>
+            <button onClick = {saveCanvas} >Save</button>
+            <div className = 'drawingArea'>
+                <canvas 
+                    onMouseDown = {startDrawing}
+                    onMouseUp = {doneDrawing}
+                    onMouseMove = {draw}
+                    ref = {canvasRef}></canvas>
+            </div>
+            
         </div>
         
     );

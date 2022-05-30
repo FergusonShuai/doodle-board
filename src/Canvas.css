@@ -1,0 +1,4 @@
+.drawingArea {
+    background-color: #F8ECD1;
+    cursor: url('./assets/pen_resized.png') 0 22, crosshair;
+}
