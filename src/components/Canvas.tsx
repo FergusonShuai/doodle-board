@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
-import '../Canvas.css';
+import '../Canvas.scss';
 
 const Canvas = (): React.ReactElement => {
     
@@ -72,8 +72,10 @@ const Canvas = (): React.ReactElement => {
     return (
         
         <div>
-            <button onClick = {clearCanvas} >Clear</button>
-            <button onClick = {saveCanvas} >Save</button>
+            <div className="multi-button">
+                <button className="cut" onClick = {clearCanvas}>Clear</button>
+                <button className="copy" onClick = {saveCanvas}>Save</button>
+            </div>
             <div className = 'drawingArea'>
                 <canvas 
                     onMouseDown = {startDrawing}
